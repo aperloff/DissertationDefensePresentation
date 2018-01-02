@@ -1,10 +1,15 @@
+%!TEX options = --shell-escape
 \documentclass[compress,10pt,dvipsnames]{Presentation}
 % Add notesonly option to print the notes in each frame
 % Add aspectratio=169 to do slides in 16 by 9 (some contents may need to be re-arranged)
 
 \usepackage{MnSymbol,wasysym}
 \usepackage{tcolorbox}
+\tcbuselibrary{skins,raster}
 \definecolor{mygray}{gray}{0.7}
+\usepackage{svg}
+\setsvg{inkscape=inkscape -z -D,svgpath=figures/}
+\newcommand*{\ClipSep}{0.4cm}%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -154,7 +159,7 @@ Default Frame Size
 \input{data/introduction}
 
 \addtocontents{toc}{\vskip 0.5cm}
-\section[CERN]{LHC \& CMS}
+\section[Facilities]{Experimental Facilities}
 \label{sec:experiment}
 \input{data/experiment}
 
@@ -169,7 +174,7 @@ Default Frame Size
 \input{data/background_estimation}
 
 \addtocontents{toc}{\vskip 0.5cm}
-\section[MVA]{Multivariate Discriminants}
+\section[MVA]{Signal Discrimination Techniques}
 \label{sec:mem}
 \input{data/matrix_element_method}
 \label{sec:signal_extraction}
@@ -190,8 +195,8 @@ Default Frame Size
 \label{sec:conclusion}
 \input{data/conclusion}
 
-%\section*{Backup}
-%\label{sec:backup}
-%\input{data/backup}
+\section*{Backup}
+\label{sec:backup}
+\input{data/backup}
 
 \end{document}

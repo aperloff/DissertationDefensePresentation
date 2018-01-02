@@ -130,7 +130,7 @@
 	\end{textblock}
 \end{frame}
 
-\begin{frame}<1>[label=frame:event_selection_met_phi]
+\begin{frame}%<1>[label=frame:event_selection_met_phi]
 	\frametitle{MC Corrections}
 	\framesubtitle{$\Em_{\phi}$ Reweighting}
 	\vspace*{-0.54cm}
@@ -180,14 +180,14 @@
 				\end{subfigure}
 				\newline
 				\begin{subfigure}[t]{\textwidth}
-					\includegraphics[width=\textwidth]{\anpath/METxyVsNPV_Before-eps-converted-to.pdf}
+					\only<1>{\includegraphics[width=\textwidth]{\anpath/METxyVsNPV_Before-eps-converted-to.pdf}}
+					\only<2>{\includegraphics[width=\textwidth]{\anpath/METxyVsNPV_After-eps-converted-to.pdf}}
 				\end{subfigure}
 			\end{figure}
 		\end{column}
 	\end{columns}
 \end{frame}
-
-\againframe<2>{frame:event_selection_met_phi}
+%\againframe<2>{frame:event_selection_met_phi}
 
 \begin{frame}
 	\frametitle{MC Corrections}
@@ -308,18 +308,18 @@
 			\begin{block}{Shape}
 				\vspace*{-0.35cm}
 				\begin{aeq}{eq:N_QCD_sig}
-					N_{antiIso}^{QCD}\left(\eta\right){\cdot}s^{QCD}\left(\eta\right)=N_{SR}^{QCD}\left(\eta\right)
+					N_{SR}^{QCD}\left(\eta\right)=N_{antiIso}^{QCD}\left(\eta\right){\cdot}s^{QCD}\left(\eta\right)
 				\end{aeq}
 				\vspace*{-0.35cm}
 				\begin{itemize}
 					\footnotesize
 					\item $N_{antiIso}^{QCD}$ and $N_{SR}^{QCD}$ are the number of QCD events in the antiIso and SR for a given luminosity
-					\item $s^{QCD}$ is the transfer weight
+					\item $s^{QCD}$: transfer weight obtained from fit{\tikz[remember picture]{\node[coordinate] (s-fit) {};}}
 					\item \Wjets (biggest background) and QCD have differently shaped $\Em_{T}$ distributions
 				\end{itemize}
 			\end{block}
 			\vspace*{-0.25cm}
-			\begin{block}{Normalization}
+			\begin{block}{Normalization over all $\eta$}
 				\begin{itemize}
 					\footnotesize
 					\item Determine the QCD \& \Wjets event yields (global scale factor):
@@ -333,7 +333,10 @@
 			\end{block}
 		\end{column}
 		\begin{column}{0.48\textwidth}
-			\includegraphics[width=\textwidth]{\figpath/SingleMetFit_control6_electron_crop.pdf}
+			\begin{tikzpicture}[remember picture]
+				\node [inner sep=0pt,above right] {\includegraphics[width=\textwidth]{\figpath/SingleMetFit_control6_electron_crop.pdf}};
+				\node[anchor=base] (fit) at (1.2,3) {};
+			\end{tikzpicture}
 			\begin{table}[ht]
 				\caption{\scriptsize{Absolute scale factors for the \Wjets and QCD samples in the electron and muon channels}}
 				\centering
@@ -363,6 +366,9 @@
 	\begin{textblock}{0.25}(0.70,0.32)
 		\color{blue} Fixed
 	\end{textblock}
+	\begin{tikzpicture}[overlay]
+			\path[->,violet,thick] ([xshift=1mm,yshift=1mm]s-fit) edge [out=0,in=180] (fit);
+	\end{tikzpicture}
 \end{frame}
 
 \begin{frame}<1>[label=frame:qcd_model_normalization]
@@ -433,30 +439,32 @@
 		\begin{tabular}{|p{3.5cm}|c|c|c|} \hline
 			\textbf{Process} & \textbf{2 Jets} & \textbf{3 Jets} & \textbf{$\geqslant$4 Jets}\\ \hline
 			Diboson & $46495.97\pm78.55$ & $15049.18\pm44.70$ & $4150.48\pm23.47$ \\
+			\rowonly<2>{\rowcolor{ForestGreen}}
 			\Wjets & $3446003.06\pm6434.30$ & $756463.35\pm3008.63$ & $189815.29\pm1515.40$ \\
 			\Zjets & $270460.62\pm822.24$ & $69061.73\pm415.90$ & $19829.24\pm222.71$ \\
 			\ttbar & $22452.06\pm142.85$ & $27902.44\pm160.86$ & $31218.33\pm170.54$ \\
 			Single \cPqt & $16587.13\pm84.31$ & $7193.89\pm59.29$ & $3068.60\pm40.25$ \\
 			Multijet & $275465.33\pm952.52$ & $74168.89\pm504.39$ & $22109.53\pm282.94$ \\\hline
-			\rowcolor{mygray}
+			\rowtemporal<2>{\rowcolor{mygray}}{\rowcolor{ForestGreen}}{\rowcolor{mygray}}
 			Total Background & $4077464.17\pm6558.75$ & $949839.48\pm3083.93$ & $270191.47\pm1567.59$ \\\hline
 			\ggH, \HWW \MH=125\gev & $552.09\pm1.92$ & $211.15\pm1.19$ & $79.51\pm0.73$ \\
 			\qqH, \HWW \MH=125\gev & $106.60\pm0.56$ & $52.66\pm0.39$ & $17.51\pm0.23$ \\
 			\WH\_\ZH\_\ttH \newline \HWW \MH=125\gev & $136.20\pm2.22$ & $84.35\pm1.75$ & $42.32\pm1.22$ \\\hline
-			\rowcolor{mygray}
+			\rowtemporal<3>{\rowcolor{mygray}}{\rowcolor{Mulberry}}{\rowcolor{mygray}}
 			Total \HWW & $794.89\pm2.99$ & $348.16\pm2.15$ & $139.34\pm1.44$ \\\hline
 			\WH\_\ZH\_\ttH \newline \HZZ \MH=125\gev & $10.30\pm0.17$ & $5.30\pm0.12$ & $2.35\pm0.08$ \\
 			\WH, \Hbb \MH=125\gev & $45.34\pm0.40$ & $14.22\pm0.23$ & $3.86\pm0.12$ \\
 			\ttH, \Hbb \MH=125\gev & $0.59\pm0.03$ & $1.33\pm0.05$ & $3.77\pm0.09$ \\\hline
 			\rowcolor{mygray}
 			Total Volunteer Signal & $56.23\pm0.44$ & $20.85\pm0.26$ & $9.98\pm0.17$ \\\hline
+			\rowonly<4>{\rowcolor{red}}
 			Signal \textsubscript{\HWW}/Bkg & 0.000195 & 0.000367 & 0.000516 \\
 			Signal \textsubscript{\HWW}/$\sqrt{\text{Bkg}}$ & 0.394 & 0.357 & 0.268 \\\hline
 			\rowcolor{mygray}
-			Data & $4057594$ & $953513$ & $272713$ \\\hline
+			Data & $4057594$ & $953513$ & $272713$ \tabularnewline\hline
 		\end{tabular}
 	\end{table}
 	\begin{itemize}
-		\item The background is $\sim5000$ times bigger than the signal
+		\item \only<4>{\color{red}}The background is $\sim5000$ times bigger than the signal
 	\end{itemize}
 \end{frame}

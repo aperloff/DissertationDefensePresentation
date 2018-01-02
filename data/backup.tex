@@ -1,4 +1,4 @@
-%!TEX root = PreliminaryExamPresentation.tex
+%!TEX root = ../DissertationDefensePresentation.tex
 
 %%--------------------------------------------------------------------------------------------
 
@@ -16,7 +16,6 @@
 		\end{center}
 	\end{block}
 \end{frame}
-
 
 \begin{frame}
 	\frametitle{Datasets \& MC Samples}
@@ -61,44 +60,6 @@
 	\tikz[overlay,remember picture]{\draw[draw=green,thick,fill opacity=0.2] ($(nsignal2)+(-0.5,0.3)$) rectangle ($(nsignal2)+(4.1,-0.1)$);}
 	\tikz[overlay,remember picture]{\draw[draw=green,thick,fill opacity=0.2] ($(nsignal3)+(-0.5,0.3)$) rectangle ($(nsignal3)+(5.3,-0.1)$);}
 \end{frame}
-
-\begin{comment}
-\begin{frame}
-	\frametitle{Event Signature}
-	\begin{columns}[c]
-		\begin{column}{0.5\textwidth}
-			\vspace*{-1.3cm}
-			\begin{center}
-				\Large{\textbf{Signal Signature}}
-				\includegraphics[width=0.85\textwidth]{\figpath/FeynmanDiagrams/ggH_WW_lvjj.pdf}\\
-				\vspace*{1.2cm}
-				\includegraphics[width=0.85\textwidth]{\figpath/FeynmanDiagrams/qqH_WW_lvjj.pdf}
-			\end{center}
-		\end{column}
-		\vrule{}
-		\begin{column}{0.50\textwidth}
-			\vspace*{-0.3cm}
-			\begin{center}
-				\Large{\textbf{Background Signature}}
-				\includegraphics[width=0.75\textwidth]{\figpath/FeynmanDiagrams/WJets.pdf}\\
-				\includegraphics[width=0.75\textwidth]{\figpath/FeynmanDiagrams/TTbar.pdf}
-			\end{center}
-		\end{column}
-	\end{columns}
-	\begin{textblock}{0.3}(0.38,0.4)
-		{\color{ForestGreen}\large{\textbf{Lepton}}}
-	\end{textblock}
-	\begin{textblock}{0.3}(0.3,0.535)
-		{\color{ForestGreen}\large{\textbf{Missing E$_{T}$}}}
-	\end{textblock}
-	\begin{textblock}{0.3}(0.365,0.275)
-		{\color{ForestGreen}\large{\textbf{Two Jets}}}
-	\end{textblock}
-	\begin{textblock}{0.4}(0.51,0.6)
-		{\color{ForestGreen}\large{\textbf{More than two?} \frownie{}}}
-	\end{textblock}
-\end{frame}
-\end{comment}
 
 \begin{frame}<1>[label=frame:event_selection_signal_region]
 	\frametitle{Event Selection}
@@ -161,86 +122,11 @@
 \againframe<2>{frame:event_selection_signal_region}
 
 \begin{frame}
-	\frametitle{Data-Driven QCD Model}
+	\frametitle{Pileup Per ${\mu\times}A_{j}$}
 	\vspace*{-0.24cm}
-	\begin{block}{}
-		\begin{itemize}
-			\footnotesize
-			\item The ratio of events in the signal region to those in the antiIso region varies dramatically over $\eta$
-			\begin{itemize}
-				\scriptsize
-				\item $\Rightarrow$ Must transform the yields in the antiIso region to represent those in the signal region
-			\end{itemize}
-			\item This can be seen in the QCD MC (only used for quick yield comparison)
-		\end{itemize}
-	\end{block}
-	\setlength{\residualSpace}{\textwidth-0.62\textwidth}%
-	\vspace*{-0.26cm}
-	\begin{columns}[T]
-		\column{\residualSpace}
-			\vspace*{-0.20cm}
-			\begin{block}{}
-				\begin{itemize}
-					\footnotesize
-					\item Six samples used with $\hat{p_{T}}$ in ranges:
-					\begin{itemize}
-						\scriptsize
-						\item 20 to 30, 30 to 80, 80 to 170, 170 to 250, 250 to 350, $>$350
-					\end{itemize}
-					\item Could be combined using weights according to cross sections:
-					\begin{itemize}
-						\scriptsize
-						\item $2.866e+08$, $7.433e+07$, $1.191e+06$, $30990$, $4250$, $810$
-					\end{itemize}
-					\item Figure shows events in signal region over events in antiIso region (in MC)
-					\begin{itemize}
-						\scriptsize
-						\item First $\hat{p_{T}}$ bin is empty because of a lack of MC statistics
-						\item We expect this bin to be very important in the data sample
-					\end{itemize}
-				\end{itemize}
-			\end{block}
-		\column{0.6\textwidth}
-			\vspace*{0.6cm}
-			\includegraphics[width=\figwidth]{\figpath/SfVsEtaMC.pdf}
-	\end{columns}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Data-Driven QCD Model}
-	\framesubtitle{$\eta$ Weights}
-	\vspace*{-0.24cm}
-	\begin{block}{}
-		\begin{itemize}
-			\footnotesize
-			\item Simply using the anti-isolated region as our QCD sample will not produce the correct yields as a function of $\eta$
-			\begin{itemize}
-				\footnotesize
-				\item There are more QCD events in the endcaps than one might naively expect
-			\end{itemize}
-			\item We decided to correct the yields in the QCD sample as a function of $\eta$
-			\item We did not use the weights from MC due to low statistics
-			\item Solution: Event weights in bins of $|\eta^{lepton}|$ (13 bins total)
-			\item We want to find a function $s_{QCD}\left(\eta\right)$ such that:
-			\begin{aeq}{eq:N_QCD_sig}
-				N_{antiIso}^{QCD}\left(\eta\right)s_{QCD}\left(\eta\right)=N_{signal\text{ }region}^{QCD}\left(\eta\right)
-			\end{aeq}
-			\begin{itemize}
-				\footnotesize
-				\item $N_{antiIso}^{QCD}\left(\eta\right)$ and $N_{signal\text{ }region}^{QCD}\left(\eta\right)$ are the number of QCD events in the antiIso and signal regions, respectively, for a given luminosity
-			\end{itemize}
-			\item We measure the QCD and WJets yields in each$|\eta^{lepton}|$ bin by fitting their $\Em_{T}$ distributions to that of the data while keeping the other backgrounds fixed to their SM expected yields
-			\begin{itemize}
-				\footnotesize
-				\item The fits return $N_{signal\text{ }region}^{QCD}$ and $N_{signal\text{ }region}^{WJets}$
-			\end{itemize}
-			\item We measure $s_{QCD}\left(\eta\right)$ in the {\color{red}\textbf{1 jet bin}} and apply it to the {\color{blue}\textbf{$\geqslant2$ jets bins}}
-			\begin{itemize}
-				\footnotesize
-				\item The control region (1 jet bin) will \textbf{not} be used in signal extraction
-			\end{itemize}
-		\end{itemize}
-	\end{block}
+	\begin{center}
+		\includegraphics[width=0.69\figwidth]{\figpath/offsetVsRcone_Eta00_pTOffset.pdf}
+	\end{center}
 \end{frame}
 
 \begin{frame}
@@ -253,7 +139,7 @@
 		\end{aeq}
 		\includegraphics[width=0.76\textwidth]{\anpath/QCD_EtaWeights/AllMetFits_control6_electron.pdf}\\
 		Very good fits!\\
-		\scriptsize{Note: See backup slides for the same plot in the $2+$ jets bin}
+		%\scriptsize{Note: See backup slides for the same plot in the $2+$ jets bin}
 	\end{center}
 	\begin{textblock}{0.30}(0.53,0.73)
 		\begin{block}{}
@@ -262,38 +148,12 @@
 	\end{textblock}
 \end{frame}
 
-\begin{frame}
-	\frametitle{Data-Driven QCD Model}
-	\framesubtitle{$\eta$ Weights Continued}
-	\vspace*{-0.24cm}
-	\begin{block}{}
-		\begin{itemize}
-			\footnotesize
-			\item On the left you see 
-			\begin{aeq}{eq:s_QCD}
-				s_{QCD}\left(\eta\right)=\frac{N_{signal\text{ }region}^{QCD}\left(\eta\right)}{N_{antiIso}^{QCD}\left(\eta\right)}
-			\end{aeq}
-			\item Similar shape to that seen in the QCD MC test
-			\item On the right we have the measured value of the WJets yields ($N_{signal\text{ }region}^{WJets}\left(\eta\right)$) divided by the SM expectation
-			\begin{itemize}
-				\scriptsize
-				\item A constant fit over all $\eta$ bins gives a value of $0.953\pm0.008$, which should be compared to $1.0\pm0.0256$ (the error was reported in the WJets cross section measurement)
-			\end{itemize}
-			\item Because all of this was done in the 1 jet bin we still need an additional scale factor to modify the total yields for the QCD and WJets contributions
-		\end{itemize}
-	\end{block}
-	\vspace*{-0.19cm}
-	\begin{center}
-		\includegraphics[width=0.6\textwidth]{\anpath/QCD_EtaWeights/SfVsEta_control6_electron.pdf}\\
-	\end{center}
-\end{frame}
-
 \frame{
 	\frametitle{$\eta$ Corrections}
 	\framesubtitle{$2+$ Jets (electron) Bin}
 	\vspace*{-0.24cm}
 	\begin{center}
-		\includegraphics[width=0.8\textwidth]{/Users/aperloff/Documents/TAMU-Graduate/Research-RicardoEusebi/CMS_Notes_and_Papers/notes/AN-13-132/trunk/figures/QCD_EtaWeights/AllMetFits_signal_electron.pdf}
+		\includegraphics[width=0.8\textwidth]{/Users/aperloff/Documents/CMS/Notes_and_Papers/notes/AN-13-132/trunk/figures/QCD_EtaWeights/AllMetFits_signal_electron.pdf}
 	\end{center}
 }
 \frame{
@@ -301,26 +161,11 @@
 	\framesubtitle{$2+$ Jets (muon) Bin}
 	\vspace*{-0.24cm}
 	\begin{center}
-		\includegraphics[width=0.8\textwidth]{/Users/aperloff/Documents/TAMU-Graduate/Research-RicardoEusebi/CMS_Notes_and_Papers/notes/AN-13-132/trunk/figures/QCD_EtaWeights/AllMetFits_signal_muon.pdf}
-	\end{center}
-}
-\frame{
-	\frametitle{$\eta$ Corrections}
-	\framesubtitle{$2+$ Jets (electron) Bin}
-	\vspace*{-0.24cm}
-	\begin{center}
-		\includegraphics[width=\textwidth]{/Users/aperloff/Documents/TAMU-Graduate/Research-RicardoEusebi/CMS_Notes_and_Papers/notes/AN-13-132/trunk/figures/QCD_EtaWeights/SfVsEta_signal_electron.pdf}
-	\end{center}
-}
-\frame{
-	\frametitle{$\eta$ Corrections}
-	\framesubtitle{$2+$ Jets (muon) Bin}
-	\vspace*{-0.24cm}
-	\begin{center}
-		\includegraphics[width=\textwidth]{/Users/aperloff/Documents/TAMU-Graduate/Research-RicardoEusebi/CMS_Notes_and_Papers/notes/AN-13-132/trunk/figures/QCD_EtaWeights/SfVsEta_signal_muon.pdf}
+		\includegraphics[width=0.8\textwidth]{/Users/aperloff/Documents/CMS/Notes_and_Papers/notes/AN-13-132/trunk/figures/QCD_EtaWeights/AllMetFits_signal_muon.pdf}
 	\end{center}
 }
 
+\begin{comment}
 \begin{frame}
 	\frametitle{Data-Driven QCD Model}
 	\framesubtitle{$\eta$ Weights continued}
@@ -377,7 +222,7 @@
 		\tiny
 		\begin{tabular}{| l | c | c | c | r |}
 			\hline\hline\\[-2.7ex]
-			& XS & Luminosity ($\unit{pb^{-1}}$) & $\frac{\#\text{ events in pfIso }>0.3\text{ region}}{\#\text{ events in signal region}}$ & \# events expected in pfIso $>0.3$ region\\
+			& XS & Luminosity (\pbinv) & $\frac{\#\text{ events in pfIso }>0.3\text{ region}}{\#\text{ events in signal region}}$ & \# events expected in pfIso $>0.3$ region\\
 			\hline\\[-2.7ex]
 			WJets & 37509.0 & 19148 & $\frac{214}{72162}\approx0.00297$ & 6488.8\\
 			\hline\\[-2.7ex]
@@ -393,214 +238,14 @@
 	\end{center}
 	%\footnotesize{Note: WJets comprises $\sim68.4\%$ of the events in our signal region and QCD comprises $\sim13.8\%$}
 }
+\end{comment}
 
 \begin{frame}
-	\frametitle{Expected \% Yields}
-	
-	\begin{table}[htbp]
-		\centering
-		\begin{tabular}{lccc} \hline
-			\textbf{Process} & \textbf{2 Jets} & \textbf{3 Jets} & \textbf{$\geqslant$4 Jets}\\ \hline
-			Diboson & 0.011 & 0.016 & 0.015 \\
-			\rowcolor{green}
-			\Wjets & 0.845 & 0.796 & 0.703 \\
-			\Zjets & 0.066 & 0.073 & 0.073 \\
-			\ttbar & 0.006 & 0.029 & 0.116 \\
-			Single \cPqt & 0.004 & 0.008 & 0.011 \\
-			Multijet & 0.068 & 0.078 & 0.082 \\\hline
-			\rowcolor{mygray}
-			Total Background & 1.000 & 1.000 & 1.000 \\\hline
-			\ggH, \HWW \MH=125\gev & 0.695 & 0.606 & 0.571 \\
-			\qqH, \HWW \MH=125\gev & 0.134 & 0.151 & 0.126 \\
-			\WH\_\ZH\_\TTH, \HWW \MH=125\gev & 0.171 & 0.242 & 0.304 \\\hline
-			\rowcolor{mygray}
-			Total \HWW & 1.000 & 1.000 & 1.000 \\\hline
-			\WH\_\ZH\_\TTH, \HZZ \MH=125\gev & 0.013 & 0.015 & 0.017 \\
-			\WH, \Hbb \MH=125\gev & 0.057 & 0.041 & 0.028 \\
-			\ttH, \Hbb \MH=125\gev & 0.001 & 0.004 & 0.027 \\\hline
-			\rowcolor{mygray}
-			Total Volunteer/Total \HWW & 0.071 & 0.060 & 0.072 \\\hline
-		\end{tabular}
-		\caption{Expected percent yields for both the electron and muon categories separated by jet bin. The background samples are normalized by the total background, while the \HWW and volunteer signal samples are normalized by the \HWW total. The Dominant background in all jet bins, \Wjets, is highlighted in green. This table contains the percent yields for the zero b-tag category.}
-		\label{tab:percent_yields_KinMEBDT}
-	\end{table}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Expected Yields}
+	\frametitle{Transfer Functions}
 	\vspace*{-0.24cm}
-	\begin{alertblock}{}
-		\begin{itemize}
-			\small
-			\item All yields use standard selection criteria (no b tag veto), normalized to luminosity \& cross section
-		\end{itemize}
-	\end{alertblock}
-	\vspace*{-0.2cm}
-	\begin{table}[hbtp]
-		\centering
-		\small
-		\begin{tabular}{| l | c | c |}
-		\hline\hline
-		Process & $\geqslant2$j Yield & Background Percentage \\
-		\hline
-		W$+$Jets & 5280237.31 & \cellcolor{yellow}70.25 \\
-		Multi-Jet   & 906948.49 & 12.07 \\
-		$t\bar{t}$  & 639932.24 & 8.51 \\
-		Z$+$Jets  & 475006.85 & 6.32 \\
-		Single t     & 138121.88 & 1.84 \\
-		Diboson    & 75686.24 & 1.01 \\
-		\hline
-		Total Bkg  & 7515933.01 & 100.00 \\
-		\hline\hline
-		ggH M$_{H}=125$ & 374.71 & 47.47 \\
-		qqH M$_{H}=125$ & 80.27 & 10.17 \\
-		WH M$_{H}=125$, H${\rightarrow}b\bar{b}$ & 334.37 & \cellcolor{green}42.36 \\
-		\hline
-		Tot Sig & 789.35 & 100.00 \\
-		\hline\hline
-		S / B & 1.05E-04 &  \\
-		S / $\sqrt{B}$ & 0.288 &  \\
-		\hline
-		\end{tabular}
-		\caption{\footnotesize{Event yields for $H{\rightarrow}WW{\rightarrow}l{\nu}jj$ $19.1\unit{fb^{-1}}$ electron \& muon sample. Yellow indicated the dominant background and green indicates a events which overlap with the WH$\rightarrow$l$\nu$bb analysis and can be reduced with a b tag veto.}}
-		\label{tab:yields}
-		\end{table}
-\end{frame}
-
-\frame{
-	\frametitle{Expected Yields}
-	\framesubtitle{1 b-tags}
-
-\begin{table}[htbp]
-\begin{center}
-  \scriptsize
-    \label{tab:OneBTagYield}
-    \begin{tabular}{|l|c|c|c|} \hline
-Process & $==$ 2 & $==$ 3 &  $\geq$4 \\ \hline
-Diboson  & 12028.09 & 5369.18 & 1967.63  \\
-$W$+jets  & 773253.48 & 272857.9 & 103508.87  \\
-$Z$+jets  & 64497.39 & 24237.81 & 9835.04  \\
-$t\bar{t}$  & 49612.48 & 86120.65 & 122073.6  \\
-Single $t$ & 40209.27 & 21303.23 & 10768.92  \\
-Multi-Jet  & 123928.96 & 43101.4 & 16061.17  \\ \hline
-Tot Bkg & 1063529.67 & 452990.17 & 264215.23  \\ \hline \hline
-ggH, H$\rightarrow$WW $M_{H}=125$  & 118.08 & 67.63 & 35.12  \\
-qqH, H$\rightarrow$WW $M_{H}=125$  & 22.46 & 16.92 & 8.19  \\
-WH\_ZH\_TTH, H$\rightarrow$WW $M_{H}125$ & 35.76 & 34.35 & 49.09  \\   \hline
-Total H$\rightarrow$WW & 176.3 & 118.9 & 92.4  \\ \hline \hline
-WH\_ZH\_TTH, H$\rightarrow$ZZ $M_{H}125$ & 3.34 & 2.55 & 3.61  \\
-WH, H$\rightarrow$b$\bar{b}$ $M_{H}125$ & 148.12 & 53.31 & 15.35  \\
-TTH, H$\rightarrow$b$\bar{b}$ $M_{H}=125$ & 2.1 & 5.94 & 22.7  \\ \hline
-Total 'Volunteer' Sig & 153.56 & 61.8 & 41.66  \\ \hline \hline
-Signal$_{H \rightarrow WW}$ / Bkg & 0.000166 & 0.000262 & 0.000349  \\ \hline
-Signal$_{H \rightarrow WW}$ /$\sqrt{Bkg}$ & 0.171 & 0.177 & 0.179  \\ \hline
-    \end{tabular}
-\caption{\scriptsize{Shows expected event yield for the 1 b-tag H$\rightarrow$WW$\rightarrow$l$\nu$jj 19.1 fb$^-$$^1$ Ele \& Mu samples normalized to cross sections and luminosity.  Top table shows background processes with all diboson processes combined as well as all single top processes combined. The middle table shows contributions from all $H\rightarrow WW$ processes that are considered as signal.  Bottom table shows other Higgs processes that are not part of our signal that could contaminate our final state.}}
-   \end{center}
-\end{table}
-}
-
-\frame{
-	\frametitle{Expected \% Yields}
-	\framesubtitle{1 b-tags}
-
-\begin{table}[htbp]
-  \centering
-  \scriptsize
-    \label{tab:OneBTagPercent}
-    \begin{tabular}{|l|c|c|c|} \hline
-Process & $==$ 2 & $==$ 3 &  $\geq$4 \\ \hline
-Diboson  & 0.011 & 0.012 & 0.007 \\
-$W$+jets  & \cellcolor{red}0.727 & \cellcolor{red}0.602 & 0.392 \\
-$Z$+jets  & 0.061 & 0.054 & 0.037 \\
-$t\bar{t}$  & 0.047 & 0.190 & \cellcolor{red}0.462 \\
-Single $t$ & 0.038 & 0.047 & 0.041 \\
-Multi-Jet  & 0.117 & 0.095 & 0.061 \\ \hline
-Tot Bkg & 1.000 & 1.000 & 1.000 \\ \hline \hline
-ggH, H$\rightarrow$WW $M_{H}=125$  & 0.670 & 0.569 & 0.380 \\
-qqH, H$\rightarrow$WW $M_{H}=125$  & 0.127 & 0.142 & 0.089 \\
-WH\_ZH\_TTH, H$\rightarrow$WW $M_{H}125$ & 0.203 & 0.289 & 0.531 \\   \hline
-Tot H$\rightarrow$WW & 1.000 & 1.000 & 1.000 \\ \hline \hline
-WH\_ZH\_TTH, H$\rightarrow$ZZ $M_{H}125$ & 0.019 & 0.021 & 0.039 \\
-WH, H$\rightarrow$b$\bar{b}$ $M_{H}125$ & \cellcolor{pink}0.840 & \cellcolor{pink}0.448 & \cellcolor{pink}0.166 \\
-TTH, H$\rightarrow$b$\bar{b}$ $M_{H}=125$ & 0.012 & 0.050 & 0.246 \\ \hline
-Tot `Volunteer' / Tot H$\rightarrow$WW & 0.871 & 0.520 & 0.451 \\ \hline \hline
-    \end{tabular}
-\caption{\scriptsize{Shows expected event yield for the 1 b-tag H$\rightarrow$WW$\rightarrow$l$\nu$jj 19.1 fb$^-$$^1$ Ele \& Mu samples normalized to total yield.  Background samples are normlized to total background, while Higgs samples are normlized to total $H\rightarrow WW$ contribution. {\color{red}Red}=Dominant Background, {\color{pink}Pink}=Volunteer Signal}}
-\end{table}
-}
-
-\begin{frame}[shrink=7.4]
-	\frametitle{Types of Searches}
-	\vspace*{-0.15cm}
-	\begin{block}{Matrix Element Method}
-		\begin{itemize}
-			\item Uses the field theoretic differential cross-section calculation to determine how likely an event (in data) is to come from a specific physics process (i.e WW, WJets, etc.)
-			\item Use the 4-vector information from \textbf{all} of the particles in the final state
-			\begin{itemize}
-				\item Not just some information or some particles
-			\end{itemize}
-		\end{itemize}
-	\end{block}
-	\vspace*{-0.15cm}
-	\begin{block}{Other Types of Analyses}
-		\begin{itemize}
-			\item Cut-and-count experiment
-			\begin{itemize}
-				\item This technique is fast and easy to use if the signal-to-background ratio is not too small
-			\end{itemize}
-			\item Fit to a sensitive kinematic distribution
-			\begin{itemize}
-				\item More sensitive than event counting, however, this method could still neglect a lot of information from other kinematic variables
-			\end{itemize}
-			\item Multivariate Analysis (MVA) using kinematic variables as inputs
-			\begin{itemize}
-				\item A technique that uses all the kinematic info of the event such as the ME is expected to be more sensitive than a technique that uses only some kinematic information. However both techniques had virtues and deficiencies and in reality they could be quite close.
-				\item Assuming all correlations are taken into account, using an MVA trained on the same kinematic variables that the ME calculations use could return a similar sensitivity to the signal
-			\end{itemize}
-		\end{itemize}
-	\end{block}
-\end{frame}
-
-\begin{frame}[shrink=23]
-	\frametitle{Matrix Element Math}
-	\vspace*{-0.3cm}
-	\begin{block}{}
-		%\begin{equation}\label{eq:dsigma1}
-		%	d{\sigma}=|M|^{2}\frac{\hbar^{2}S}{4\sqrt{(q_{1}{\cdot}q_{2})^{2}-(m_{1}m_{2}c^{2})^{2}}}d{\Phi}_{n}
-		%\end{equation}
-		%\begin{equation}\label{eq:phasespace}
-		%	d{\Phi}_{n}={\delta}(q_{1}+q_{2}-\sum_{i=1}^{n}p_{i})\prod_{i=1}^{n}\frac{cd^{3}p_{i}}{(2\pi)^{3}2E_{i}}
-		%\end{equation}
-		
-		\begin{equation}\label{eq:dsigma2}
-			d{\sigma}={\int}dp_{z_{\nu}}|M|^{2}\frac{f(q_{1})f(q_{2})}{|q_{1}||q_{2}|}{\prod_{i=1}^{n_{partons}^{jets}}}\frac{dE_{i}W(E_{i},E_{j}){\delta^{4}}(q_{1}+q_{2}-p_{l}-p_{\nu}-{\sum_{i=1}^{n_{jets}^{jets}}}p_{i})}{E_{i}E_{l}E_{\nu}}
-		\end{equation}
-		\begin{subequations}\label{eq:constraints}
-			\begin{align}
-				q^{\mu}&=(x,y,z,E)\\
-				q_{1}^{\mu}&=(0,0,p_{1z},p_{1z})\\
-				q_{2}^{\mu}&=(0,0,-p_{2z},p_{2z})\\
-				q_{1}^{\mu}+q_{2}^{\mu}&=(0,0,p_{1z}-p_{2z},p_{1z}+p_{2z})
-			\end{align}
-		\end{subequations}
-		
-		\begin{itemize}
-			\item \eqref{eq:dsigma2} returns the differential cross section
-        			\item M is the ME (amplitude) for the interaction and S is a combinatorial factor which takes into account identical particles.
-		        \item The phase space factor guarantees energy and momentum are conserved.
-		       % \item With the introduction of parton distribution functions (PDFs), transfer functions, and constrains (see \eqref{eq:constraints} for sample), the differential cross section becomes:
-			\item $f(q_{i})$ are the PDFs (initial parton probabilities)
-		        \item $W(E_{i},E_{j})$ are the transfer functions
-		        \begin{itemize}
-				\item Matches a given parton energy to a final state jet energy, which takes into account \textbf{resolution/reconstruction} effects
-				\item In other words, it is the probability that a specific parton energy gives you the jet energy that you saw in the final state measurement
-			\end{itemize}
-			\item We integrate over the neutrino longitudinal momentum and the momenta of the initial partons (assume angles and lepton well measured)
-			\item Calculate probability based on theoretical LO matrix elements
-			%\item All constants will drop out
-		\end{itemize}
-	\end{block}
+	\begin{center}
+		\includegraphics[width=0.95\textwidth]{\figpath/Ej-Ep.eps}
+	\end{center}
 \end{frame}
 
 \begin{frame}
@@ -625,7 +270,7 @@ Tot `Volunteer' / Tot H$\rightarrow$WW & 0.871 & 0.520 & 0.451 \\ \hline \hline
 			\end{itemize}
 			\column{0.3\textwidth}
 			\vspace*{0.7cm}
-			\includegraphics[width=\textwidth]{/Users/aperloff/Documents/TAMU-Graduate/Research-RicardoEusebi/TAMUWW/Slides/2015_06_11-HWW-JoeyAndAlexx/LabFrame}%
+			\includegraphics[width=\textwidth]{\figpath/WDecayAngles.png}%
 		\end{columns}
 		\begin{aeq}{eq:MELA}
 MELA=\left[1+\frac{{\color{blue}\mathcal{P}_{bkg}}\left(m_{1},m_{2},\theta_{1},\theta_{2},\Phi,\theta^{*},\Phi_{1}|m_{4\ell}\right)}{{\color{red}\mathcal{P}_{sig}}\left(m_{1},m_{2},\theta_{1},\theta_{2},\Phi,\theta^{*},\Phi_{1}|m_{4\ell}\right)}\right]^{-1}
@@ -636,6 +281,7 @@ EPD=\frac{\mathcal{P}_{signal1}+\mathcal{P}_{signal2}+...}{\mathcal{P}_{signal1}
 	\end{block}
 \end{frame}
 
+\begin{comment}
 \begin{frame}<1>[label=frame:MEBDT_training]
 	\frametitle{Matrix Element Analysis}
 	\framesubtitle{MEBDT Training}
@@ -657,7 +303,7 @@ EPD=\frac{\mathcal{P}_{signal1}+\mathcal{P}_{signal2}+...}{\mathcal{P}_{signal1}
 				\item Trained in individual jet bins
 				\item We investigated using the probability densities ($\mathcal{P}$) on their own, $\log{\mathcal{P}}$, $\mathcal{P}_{max}$, $\log{\mathcal{P}_{max}}$, and a combination of these
 				\begin{itemize}
-					\item Ultimately we decided to go with $\log{\mathcal{P}}$ (more details in section~\ref{sec:MEBDT_variable_selections})
+					\item Ultimately we decided to go with $\log{\mathcal{P}}$
 				\end{itemize}
 				\only<1>{\vspace*{0.80cm}}
 				\only<2>{\item Signal in ({\color{blue}blue}) and W+jets background ({\color{red}red}) for the input variables to the 2 jet bin}
@@ -854,62 +500,7 @@ FOM for ROC & & & 0.5103 & 0.5655 & 0.4415 & 0.5418 & 0.4162 & 0.5567 \\ \hline
 %  \end{adjustwidth} 
 \end{table}
 }
-
-\begin{frame}
-	\frametitle{BDT Analyses: Cross-Checks and Combinations}
-	\vspace*{-0.25cm}
-
-	\begin{block}{}
-	\begin{itemize}
-		\scriptsize
-		\item We simultaneously performed another MVA based analysis using traditional kinematic variables
-		\vspace*{-0.15cm}
-		\item Boosted Decision Tree (BDT):
-		\begin{itemize}
-			\scriptsize
-			\item This signal extraction technique uses the differences between signal and background in kinematic distributions
-			\item $\sim45$ variables was analyzed for their discriminating power
-			\item Input variables are optimized for each category individually; a subset is chosen based on ranking
-		\end{itemize}
-	\end{itemize}
-	\end{block}
-	\vspace*{-0.24cm}
-	\begin{block}{}
-	\begin{itemize}
-		\scriptsize
-		\item There was a worry that the LO ME chosen for the MEM might have left that analysis with less sensitivity than the more traditional BDT analysis (this turned out to not be the case)
-		\vspace*{-0.15cm}
-		\item We decided to combine the two sets of variables, while still avoiding overtraining
-		\begin{itemize}
-			\scriptsize
-			\item Combined the MEM outputs and then combined that classifier with the other input variables
-		\end{itemize}
-		%\item Here you have signal/all $H{\rightarrow}WW$ samples ({\color{blue}blue}) and W+Jets background ({\color{red}red}) for the 2 Jet, 0 B-tag training
-	\end{itemize}
-	\end{block}
-	\vspace*{-0.3cm}
-	\begin{myfancyblock}
-		\node[anchor=south west,inner sep=0] (image) at (0,0) {%
-			\hspace*{0.3cm}\includegraphics[width=0.25\textwidth]{\figpath/MVA/2015_07_17_TMVA_output_jets2_eq0tag_both_HToWW_WJets_noEvtProbs_11KinVar/mva_BDT.pdf}%
-			\includegraphics[width=0.25\textwidth]{\figpath/MVA/2015_07_17_TMVA_output_jets3_eq0tag_both_HToWW_WJets_noEvtProbs_13KinVar/mva_BDT.pdf}%
-			\includegraphics[width=0.25\textwidth]{\figpath/MVA/2015_07_17_TMVA_output_jets4_eq0tag_both_HToWW_WJets_noEvtProbs_7KinVar/mva_BDT.pdf}%
-		};
-		\node[anchor=south west,inner sep=0] (image2) at (0,-2.25) {%
-			\hspace*{0.3cm}\includegraphics[width=0.25\textwidth]{\figpath/MVA/2015_07_17_TMVA_output_jets2_eq0tag_both_HToWW_WJets_noEvtProbs_12KinVar/mva_BDT.pdf}%
-			\includegraphics[width=0.25\textwidth]{\figpath/MVA/2015_07_17_TMVA_output_jets3_eq0tag_both_HToWW_WJets_noEvtProbs_14KinVar/mva_BDT.pdf}%
-			\includegraphics[width=0.25\textwidth]{\figpath/MVA/2015_07_17_TMVA_output_jets4_eq0tag_both_HToWW_WJets_noEvtProbs_8KinVar/mva_BDT.pdf}%
-		};
-		\hspace*{-0.26cm}\node [draw,rectangle,text centered, rounded corners,fill=tamugray,tamugray,text=Black,rotate=90, left of = image, xshift=1.1cm, yshift=6.0cm] {Kin BDT};
-		\hspace*{-0.00cm}\node [draw,rectangle,text centered, rounded corners,fill=tamugray,tamugray,text=Black,rotate=90, left of = image2, xshift=1.1cm, yshift=6.0cm] {Kin+ME BDT};
-		
-	\end{myfancyblock}
-	\begin{textblock}{5.0}(4.75,5.3){\color{red}{2J0B}}\end{textblock}
-	\begin{textblock}{5.0}(7.80,5.3){\color{red}{3J0B}}\end{textblock}
-	\begin{textblock}{5.0}(10.9,5.3){\color{red}{4J0B}}\end{textblock}
-	\begin{textblock}{5.0}(4.75,7.5){\color{red}{2J0B}}\end{textblock}
-	\begin{textblock}{5.0}(7.80,7.5){\color{red}{3J0B}}\end{textblock}
-	\begin{textblock}{5.0}(10.9,7.5){\color{red}{4J0B}}\end{textblock}
-\end{frame}
+\end{comment}
 
 \begin{frame}
 	\frametitle{BDT Training \& Optimization}
@@ -1008,95 +599,6 @@ FOM for ROC & & & 0.5103 & 0.5655 & 0.4415 & 0.5418 & 0.4162 & 0.5567 \\ \hline
 	\begin{textblock}{5.0}(4.20,7.5){\color{red}{2J0B}}\end{textblock}
 	\begin{textblock}{5.0}(7.70,7.5){\color{red}{3J0B}}\end{textblock}
 	\begin{textblock}{5.0}(11.2,7.5){\color{red}{4J0B}}\end{textblock}
-\end{frame}
-
-\ifthenelse{\boolean{prelim}}{}{
-\begin{frame}
-  \frametitle{ME BDT Input Variable Correlation Matrix}
-  \vspace*{-0.24cm}
-  \begin{myfancyblock}
-    \node[anchor=south west,inner sep=0] (image) at (0,0) {%
-      \hspace*{0.3cm}\includegraphics[width=0.3\textwidth]{\figpath/MVA/2015_07_17_TMVA_output_jets2_eq0tag_both_HToWW_WJets_allEvtProbs_0KinVar/CorrelationMatrixS.pdf}%
-      \includegraphics[width=0.3\textwidth]{\figpath/MVA/2015_07_17_TMVA_output_jets3_eq0tag_both_HToWW_WJets_allEvtProbs_0KinVar/CorrelationMatrixS.pdf}%
-      \includegraphics[width=0.3\textwidth]{\figpath/MVA/2015_07_17_TMVA_output_jets4_eq0tag_both_HToWW_WJets_allEvtProbs_0KinVar/CorrelationMatrixS.pdf}%
-    };
-    \node[anchor=south west,inner sep=0] (image2) at (0,-3.5) {%
-      \hspace*{0.3cm}\includegraphics[width=0.3\textwidth]{\figpath/MVA/2015_07_17_TMVA_output_jets2_eq0tag_both_HToWW_WJets_allEvtProbs_0KinVar/CorrelationMatrixB.pdf}%
-      \includegraphics[width=0.3\textwidth]{\figpath/MVA/2015_07_17_TMVA_output_jets3_eq0tag_both_HToWW_WJets_allEvtProbs_0KinVar/CorrelationMatrixB.pdf}%
-      \includegraphics[width=0.3\textwidth]{\figpath/MVA/2015_07_17_TMVA_output_jets4_eq0tag_both_HToWW_WJets_allEvtProbs_0KinVar/CorrelationMatrixB.pdf}%
-    };
-
-    \hspace*{-0.26cm}\node [draw,rectangle,text centered, rounded corners,fill=tamugray,tamugray,text=Black,rotate=90, left of = image, xshift=1.1cm, yshift=6.0cm] {Signal};
-    \hspace*{-0.00cm}\node [draw,rectangle,text centered, rounded corners,fill=tamugray,tamugray,text=Black,rotate=90, left of = image2, xshift=1.1cm, yshift=6.0cm] {Background};
-
-  \end{myfancyblock}
-  \begin{textblock}{5.0}(4.00,1.25){\color{red}{2J0B}}\end{textblock}
-  \begin{textblock}{5.0}(7.70,1.25){\color{red}{3J0B}}\end{textblock}
-  \begin{textblock}{5.0}(11.3,1.25){\color{red}{4J0B}}\end{textblock}
-\end{frame}
-
-\begin{frame}
-  \frametitle{ME+Kin BDT Input Variable Correlation Matrix}
-  \vspace*{-0.24cm}
-  \begin{myfancyblock}
-    \node[anchor=south west,inner sep=0] (image) at (0,0) {%
-       \hspace*{0.3cm}\includegraphics[width=0.3\textwidth]{\figpath/MVA/2015_07_17_TMVA_output_jets2_eq0tag_both_HToWW_WJets_noEvtProbs_12KinVar/CorrelationMatrixS.pdf}%
-       \includegraphics[width=0.3\textwidth]{\figpath/MVA/2015_07_17_TMVA_output_jets3_eq0tag_both_HToWW_WJets_noEvtProbs_14KinVar/CorrelationMatrixS.pdf}%
-       \includegraphics[width=0.3\textwidth]{\figpath/MVA/2015_07_17_TMVA_output_jets4_eq0tag_both_HToWW_WJets_noEvtProbs_8KinVar/CorrelationMatrixS.pdf}%
-     };
-     \node[anchor=south west,inner sep=0] (image2) at (0,-3.5) {%
-       \hspace*{0.3cm}\includegraphics[width=0.3\textwidth]{\figpath/MVA/2015_07_17_TMVA_output_jets2_eq0tag_both_HToWW_WJets_noEvtProbs_12KinVar/CorrelationMatrixB.pdf}%
-       \includegraphics[width=0.3\textwidth]{\figpath/MVA/2015_07_17_TMVA_output_jets3_eq0tag_both_HToWW_WJets_noEvtProbs_14KinVar/CorrelationMatrixB.pdf}%
-       \includegraphics[width=0.3\textwidth]{\figpath/MVA/2015_07_17_TMVA_output_jets4_eq0tag_both_HToWW_WJets_noEvtProbs_8KinVar/CorrelationMatrixB.pdf}%
-     };
-
-    \hspace*{-0.26cm}\node [draw,rectangle,text centered, rounded corners,fill=tamugray,tamugray,text=Black,rotate=90, left of = image, xshift=1.1cm, yshift=6.0cm] {Signal};
-    \hspace*{-0.00cm}\node [draw,rectangle,text centered, rounded corners,fill=tamugray,tamugray,text=Black,rotate=90, left of = image2, xshift=1.1cm, yshift=6.0cm] {Background};
-
-  \end{myfancyblock}
-  \begin{textblock}{5.0}(4.00,1.25){\color{red}{2J0B}}\end{textblock}
-  \begin{textblock}{5.0}(7.70,1.25){\color{red}{3J0B}}\end{textblock}
-  \begin{textblock}{5.0}(11.3,1.25){\color{red}{4J0B}}\end{textblock}
-\end{frame}
-}
-
-\subsection*{Limits}
-
-\begin{frame}
-	\frametitle{Systematic Uncertainties}
-	\framesubtitle{Summary}
-	\vspace*{-0.24cm}
-
-	\begin{table}[htbp]
-		\centering
-		\scriptsize
-		\begin{tabular}{|l|c|c|c|}
-			\hline\hline
-			Uncertainty & Rate (Y/N) & Shape (Y/N) & Comments \\
-			\hline
-			%\rowcolor{red}
-			$Q^{2}$ Scaling & N & Y & W+jets MC only \\ \hline
-			%\rowcolor{red}
-			ME/PS Matching & N & Y & W+jets MC only \\ \hline
-			Background xSec & Y & N & All background samples \\  \hline
-			Signal xSec & Y & N & All signal MC samples \\  \hline
-			Luminosity & Y & N & All samples \\  \hline
-			MC Pileup reweighting & Y & N & All MC samples \\  \hline
-			Trigger Efficiency & Y & N &  All MC samples\\  \hline
-			Lepton Selection Efficiency & Y & N & All MC samples\\  \hline
-			%\rowcolor{yellow}
-			JES Uncertainties & Y & Y & All MC samples \\  \hline
-			MET Uncertainty & Y & N & All samples\\  \hline
-			CSV Reshaping & Y & N &  All MC samples\\  \hline
-			Top Pt-reweighting & Y & Y &  TTbar MC only\\  \hline
-			%\rowcolor{red}
-			QCD $\eta$ Weight & Y & Y & QCD shape, W+jets and QCD rate \\   \hline
-			Statistical Uncertainties & N & Y & All samples \\
-			\hline\hline
-		\end{tabular}
-		\caption{List of all systematic uncertainties applied in analysis, whether that uncertainty has a rate or shape component to it, 	and which samples is is applied to.}
-		\label{tab:ListOfSystematics}
-	\end{table}
 \end{frame}
 
 \begin{frame}

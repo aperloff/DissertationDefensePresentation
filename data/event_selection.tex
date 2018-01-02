@@ -1,30 +1,52 @@
 %!TEX root = ../DissertationDefensePresentation.tex
 
+{
+\usebackgroundtemplate{
+  \begin{tikzpicture}
+    \path [outer color = white, inner color = gray!85]
+      (0,0) rectangle (\paperwidth,\paperheight);
+  \end{tikzpicture}}
+\begin{frame}
+    \begin{textblock}{1.0}(0.0,0.75)
+        \begin{center}
+            \Huge
+            \HWWlvjj Analysis Details\\
+        \end{center}
+    \end{textblock}
+\end{frame}
+}
+
 %%--------------------------------------------------------------------------------------------
 
 \subsection*{Signal}
 
 %%--------------------------------------------------------------------------------------------
 
-\begin{frame}<1>[label=frame:event_signature]
+\begin{frame}%<1>[label=frame:event_signature]
+	\setlength{\leftmargini}{0.5cm}
+	\setlength{\leftmarginii}{0.5cm}
+	\setlength{\leftmarginiii}{0.5cm}
 	\tikzstyle{na} = [baseline=-.5ex]
 	\frametitle{Event Signature}
 	\vspace*{-0.24cm}
 	\begin{columns}[T]
 		\begin{column}{0.5\textwidth}
+			\vspace*{-0.25cm}
 			\begin{block}{}
 				\begin{itemize}
 					\item Need a sample enriched in \HWW with a semi-leptonic signature:
 					\begin{itemize}
-						\item<2-> \textbf{Exactly 1 electron or muon}{\tikz[remember picture]{\node[coordinate] (s-lepton) {};}} passing the trigger and quality criteria
+						\item<2-> \textbf{Exactly 1 electron or muon} passing{\tikz[remember picture]{\node[coordinate] (s-lepton) {};}} the trigger and quality criteria
 						\begin{itemize}
-							\item<2-> No additional loose leptons
+							\item<2-> $p_{T}>$30 (25)\gev for electrons (muons)
+							\item<2-> No additional ``loose'' leptons
 						\end{itemize}
 						\item<3-> \textbf{At least 2 jets} passing the quality{\tikz[remember picture]{\node[coordinate] (s-jet) {};}} requirements
 						\begin{itemize}
 							\item<3-> Anti-k\textsubscript{T} PF$+$CHS, R$=$0.5
+							\item<3-> (Sub-)Leading jet $p_{T}>$30 (25)\gev
 						\end{itemize}
-						\item<4-> \textbf{Must contain some \ETslash}{\tikz[remember picture]{\node[coordinate] (s-met) {};}}
+						\item<4-> \textbf{Must contain \ETslash$>$25\gev}{\tikz[remember picture]{\node[coordinate] (s-met) {};}}
 						\begin{itemize}
 							\item<4-> Removes some of the QCD background
 						\end{itemize}
@@ -95,11 +117,11 @@
 	\end{tikzpicture}
 	}
 \end{frame}
-\againframe<2>{frame:event_signature}
-\againframe<3>{frame:event_signature}
-\againframe<4>{frame:event_signature}
-\againframe<5>{frame:event_signature}
-\againframe<6>{frame:event_signature}
+%\againframe<2>{frame:event_signature}
+%\againframe<3>{frame:event_signature}
+%\againframe<4>{frame:event_signature}
+%\againframe<5>{frame:event_signature}
+%\againframe<6>{frame:event_signature}
 
 
 %%--------------------------------------------------------------------------------------------

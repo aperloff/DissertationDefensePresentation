@@ -1,12 +1,38 @@
 %!TEX root = ../DissertationDefensePresentation.tex
 
+{
+\usebackgroundtemplate{
+  \begin{tikzpicture}
+    \path [outer color = white, inner color = gray!85]
+      (0,0) rectangle (\paperwidth,\paperheight);
+  \end{tikzpicture}}
+\begin{frame}
+	\begin{textblock}{1.0}(0.00,0.20)
+        \begin{tcbraster}[raster columns=2,raster force size=false,size=fbox]
+            \begin{center}
+                \tcbincludegraphics[blank,arc=0.3cm,hbox,graphics options={width=0.5\textwidth}]{\figpath/mem.png}\hspace*{0.1cm}\tcbincludegraphics[blank,arc=\ClipSep,hbox,graphics options={width=0.3\textwidth}]{\figpath/decision_tree.png}
+            \end{center} 
+        \end{tcbraster}
+    \end{textblock}
+    \begin{textblock}{1.0}(0.0,0.75)
+    	\color{black}
+        \begin{center}
+            \Huge
+            Signal Extraction\\
+            \large
+            Templates, Marix Element Methods, and Boosted Decision Trees
+        \end{center}
+    \end{textblock}
+\end{frame}
+}
+
 %%--------------------------------------------------------------------------------------------
 
-\subsection*{Matrix Element Computations}
+\subsection*{Matrix Element Method}
 
 %%--------------------------------------------------------------------------------------------
 
-\begin{frame}<1>[label=frame:MEM_formalism]
+\begin{frame}%<1>[label=frame:MEM_formalism]
 	\frametitle{Matrix Element Analysis}
 	\framesubtitle{Formalism}
 	\vspace*{-0.24cm}
@@ -59,13 +85,13 @@ d\Phi_{n}\left(q_{1}+q_{2};y_{1},...,y_{n}\right)=\left(2\pi\right)^{4}\delta^{4
 		}
 	\end{block}
 \end{frame}
-\againframe<2>{frame:MEM_formalism}
-\againframe<3>{frame:MEM_formalism}
-\againframe<4>{frame:MEM_formalism}
-\againframe<5>{frame:MEM_formalism}
-\againframe<6>{frame:MEM_formalism}
-\againframe<7>{frame:MEM_formalism}
-\againframe<8>{frame:MEM_formalism}
+%\againframe<2>{frame:MEM_formalism}
+%\againframe<3>{frame:MEM_formalism}
+%\againframe<4>{frame:MEM_formalism}
+%\againframe<5>{frame:MEM_formalism}
+%\againframe<6>{frame:MEM_formalism}
+%\againframe<7>{frame:MEM_formalism}
+%\againframe<8>{frame:MEM_formalism}
 
 \begin{frame}
 	\frametitle{Matrix Element Analysis}
@@ -89,7 +115,7 @@ d\Phi_{n}\left(q_{1}+q_{2};y_{1},...,y_{n}\right)=\left(2\pi\right)^{4}\delta^{4
 				\item A region is divided in half, along the axis\\most difficult to integrate, if the error\\within that region is the largest of all regions
 				\item This stops when $\epsilon$ is reached
 			\end{itemize}
-			\item For each rectangular subreagion there are\\$2^{n}+2n^{2}+2n+1$ function evaluations
+			\item For each rectangular subregion there are\\$2^{n}+2n^{2}+2n+1$ function evaluations
 		\end{itemize}
 		\vspace*{-0.035cm}
 		{\tiny A. van Doren and L. de Ridder, An adaptive algorithm for numerical integration over an n-dimensional cube, J. Comput. Appl. Math. 2 (1976) 207-217.}
@@ -148,10 +174,10 @@ d\Phi_{n}\left(q_{1}+q_{2};y_{1},...,y_{n}\right)=\left(2\pi\right)^{4}\delta^{4
 	\vspace*{-0.24cm}
 	\begin{block}{We still needed to combine the 15 MEs into some discriminator}
 	 	\begin{itemize}
-	 		\item Could have followed the CDF Single Top analysis or the CMS $\PH{\rightarrow}\ZZ{\rightarrow}4\ell$ analysis in making use of the Neyman-Pearson lemma to form a likelihood
-	 		\begin{itemize}
-	 			\item In CMS this is called a Matrix Element Liklihood Analysis (MELA)
-	 		\end{itemize}
+	 		\item Could have followed the CDF Single Top analysis or the CMS $\PH{\rightarrow}\ZZ{\rightarrow}4\ell$ analysis in making use of the Neyman-Pearson lemma to form a ratio of likelihoods
+	 		%\begin{itemize}
+	 		%	\item In CMS this is called a Matrix Element Likelihood Analysis (MELA)
+	 		%\end{itemize}
 	 		\item We found this methodology to be inferior to using a \textbf{Boosted Decision Tree (BDT)} classifier
 	 		\begin{itemize}
 	 			\item This gives a typically shallow networked (BDT) the ability to create a non-linear discriminant function because the inputs are already non-linear variables

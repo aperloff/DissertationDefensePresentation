@@ -5,6 +5,49 @@
 \subsection{Standard Model}
 
 %%--------------------------------------------------------------------------------------------
+{
+%\setbeamercolor{background canvas}{bg=violet}
+%\setbeamertemplate{background canvas}{%%
+%\begin{tikzpicture}[remember picture,overlay]
+%\shade[top color=gray!85,bottom color=gray!85,middle color=white]
+%  ([shift={(0.5cm,-0.5cm)}]current page.north west)
+%   rectangle
+%  ([shift={(-0.5cm,0.5cm)}]current page.south east);
+%\end{tikzpicture}%     
+%}
+\usebackgroundtemplate{
+  \begin{tikzpicture}
+    \path [outer color = white, inner color = gray!85]
+      (0,0) rectangle (\paperwidth,\paperheight);
+  \end{tikzpicture}}
+\begin{frame}
+	\begin{textblock}{1.0}(0.00,0.05)
+		\begin{center}
+			\includegraphics[width=0.65\textwidth]{\figpath/Elementary_particle_interactions.pdf}
+		\end{center}	
+	\end{textblock}
+	\begin{textblock}{1.0}(0.0,0.75)
+		\begin{center}
+			\Huge
+			The Standard Model\\
+			\large
+			and the Higgs Boson
+		\end{center}
+	\end{textblock}
+\end{frame}
+}
+
+\begin{comment}
+\begin{frame}
+    \setbeamercolor{section in toc shaded}{use=structure,fg=tamugray}%structure.fg}
+	\setbeamercolor{section in toc}{fg=tamumaroon}
+	\setbeamercolor{subsection in toc shaded}{fg=black}
+	\setbeamercolor{subsection in toc}{fg=tamumaroon}
+    \setbeamerfont{subsection in toc}{size=\large,series=\bf}
+    \setbeamerfont{section in toc}{size=\Large,series=\bf}
+    \tableofcontents[currentsection]
+\end{frame}
+\end{comment}
 
 \begin{frame}[fragile]
 	\tikzstyle{myarrows}=[line width=1mm,draw=magenta,-triangle 45,postaction={draw, line width=3mm, shorten >=4mm, -}]
@@ -17,7 +60,7 @@
 			\begin{itemize}
 				\small
 				\item $SU(3)_{C}{\otimes}SU(2)_{L}{\otimes}U(1)_{Y}$ gauge theory
-				\item Forces are mediated by spin-1 gauge bosons (4).
+				\item Forces mediated by spin-1 gauge bosons (4).
 				\begin{itemize}
 					\item $\gamma$\enspace- electromagnetic interactions
 					\item \Wpm/\cPZ\enspace- weak interactions
@@ -28,7 +71,7 @@
 			\begin{itemize}
 				\vspace*{-0.20cm}
 				\small
-				\item Matter is made up of spin-1/2 fermions
+				\item Matter made up of spin-1/2 fermions
 				\begin{itemize}
 					\item Leptons (6) and quarks (6)
 				\end{itemize}
@@ -64,6 +107,56 @@
 	\end{textblock}
 \end{frame}
 
+\begin{frame}%<1>[label=frame:BSM]
+	\frametitle{Physics Beyond the Standard Model (BSM)}
+	\vspace*{-0.5cm}
+	\begin{columns}[T]
+		\begin{column}{0.4\textwidth}
+			\begin{block}{What is the SM lacking?}
+				\begin{itemize}
+					\small
+					\uncover<1->{\item A dark matter candidate}
+					\uncover<2->{\item A mechanism for non-zero neutrino mass and neutrino oscillations}
+					\uncover<3->{\item A description of gravitational interactions}
+					\uncover<4->{\item An explanation for the matter-antimatter asymmetry of the universe}
+					\uncover<5->{\item A grand unified theory!!!}
+				\end{itemize}
+			\end{block}
+		\end{column}
+		\begin{column}{0.57\textwidth}
+			\begin{center}
+				\only<1>{\vspace*{-0.3cm}\hspace*{0.3cm}\includegraphics[width=\textwidth]{\figpath/CosmicComposition.jpg}}
+				\only<2>{\vspace*{-0.2cm}\hspace*{0.3cm}\includegraphics[width=0.7\textwidth]{\figpath/neutrinos.jpg}}
+				\only<3>{\vspace*{0.2cm}\hspace*{0.1cm}\includegraphics[width=\textwidth]{\figpath/spacetime.jpg}}
+				\only<4>{\vspace*{-0.3cm}\hspace*{0.3cm}\includegraphics[width=0.7\textwidth]{\figpath/Asymmetry.jpg}}
+				\only<5->{\hspace*{0.1cm}\includegraphics[width=\textwidth]{\figpath/unification.png}}
+			\end{center}
+		\end{column}
+	\end{columns}
+	\vspace*{-0.1cm}
+	\uncover<6->{
+	\begin{block}{What does Higgs physics have to do with BSM?}
+		\begin{itemize}
+			\small
+			\item Need at least one (SM Higgs) to provide mass to particles
+			\begin{itemize}
+				\item Couplings to BSM particles can alter the Higgs boson properties
+			\end{itemize}
+			\item Additional particles in the Higgs sector at the $\mathcal{O}\left(1 TeV\right)$ scale would be proof of BSM physics
+			\begin{itemize}
+				\item Could disambiguate supersymmetry (SUSY), from composite Higgs models, etc.
+			\end{itemize}
+		\end{itemize}
+	\end{block}
+	}
+\end{frame}
+%\againframe<2>{frame:BSM}
+%\againframe<3>{frame:BSM}
+%\againframe<4>{frame:BSM}
+%\againframe<5>{frame:BSM}
+%\againframe<6>{frame:BSM}
+
+\begin{comment}
 \begin{frame}
 	\frametitle{Physics Beyond the Standard Model (BSM)}
 	\vspace*{-0.24cm}
@@ -117,6 +210,7 @@
 		\end{itemize}
 	\end{block}
 \end{frame}
+\end{comment}
 
 \begin{frame}
 	\tikzstyle{na} = [baseline=-.5ex]
@@ -197,6 +291,9 @@
 %%--------------------------------------------------------------------------------------------
 
 \begin{frame}
+	\setlength{\leftmargini}{0.5cm}
+	\setlength{\leftmarginii}{0.5cm}
+	\setlength{\leftmarginiii}{0.5cm}
 	\frametitle{Higgs Decay}
 	\framesubtitle{\small Why search for the Higgs boson in the \HWWlvjj channel?}
 	\vspace*{-0.24cm}	
@@ -212,7 +309,7 @@
 					\end{itemize}
 					\item Fully-leptonic analysis (\HWWlvlv)
 					\begin{itemize}
-						\item Only channel to probe vertex, so far ($\sim$4$\sigma$ result)
+						\item Only channel to probe vertex, so far ($\sim$4$\sigma$ result \href{https://arxiv.org/pdf/1312.1129.pdf}{CMS-HIG-13-023})
 						\item Would be nice to have another handle to probe this vertex
 					\end{itemize}
 					\item \textbf{Semi-leptonic analysis} (\HWWlvjj)
@@ -224,9 +321,9 @@
 						\end{itemize}
 						\item The bad:
 						\begin{itemize}
-							\item Looked at only for $\MH>\text{2}\MW$
-							%\item Searching in the WW channel requires one W to be off-shell since $M_{H}<2M_{W}$
 							\item Small signal to background ratio
+							\item High mass analysis looked at only for $\MH>\text{2}\MW$
+							%\item Searching in the WW channel requires one W to be off-shell since $M_{H}<2M_{W}$
 							%\item The resolution in the semileptonic channel is not as good as the fully-leptonic channel due to the presence of jets and MET
 						\end{itemize}
 						\item New techniques may make this channel feasible and useful for measuring the properties of the Higgs boson
