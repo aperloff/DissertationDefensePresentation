@@ -1,0 +1,14 @@
+#!/bin/bash
+
+for jet in "jets2 jets3 jets4"; do
+    for lep in "electron muon"; do
+	for var in "Kin KinME ME"; do
+	    for format in "pdf eps png"; do
+		export filename="${var}BDT_${lep}.${format}"
+		echo "Getting file ${filename} ... "
+		scp aperloff@cmslpc-sl6.fnal.gov:/uscms_data/d2/aperloff/Summer12ME8TeV/2017_09_18_LimitHistograms_PU_CSV_TTbar_QCDEta_Scale/nominal/${jet}/${lep}/${filename} ./
+		mv "${filename}" "$(basename "${filename}" ${lep}.${format})${jet}_${lep}.${format}"
+	    done
+	done
+    done
+done
